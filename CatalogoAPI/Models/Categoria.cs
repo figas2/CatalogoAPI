@@ -4,14 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CatalogoAPI.Models
 {
+    [Table("Categorias")] //redundante
     public class Categoria
     {     
         public Categoria()
         {
             Produtos = new Collection<Produto>();
         }
+        [Key] //redundante
         public int CategoriaId { get; set; }
+        [Required]
+        [StringLength(80)]
         public string? Nome { get; set; }
+        [Required]
+        [StringLength(300)]
         public string? ImagemUrl { get; set; }
         public ICollection<Produto>? Produtos { get; set; }
     }
